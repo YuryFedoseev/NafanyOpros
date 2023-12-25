@@ -1,53 +1,62 @@
+import ij.IJ;
+import ij.ImagePlus;
+
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class oprosadapter {
-    public static void main(String[] args){
-        Scanner kbd = new Scanner (System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner kbd = new Scanner(System.in);
 
-        String firstChoice = "выбрали 1";
-        String secondChoice = "выбрали 2";
         String decision;
-        Integer countChoice ;
-
+        String decisiono;
+        int intChoice = 0;
 
         //Ввод пароля
         boolean passwordTest = true;
-        while (passwordTest){
+        while (passwordTest) {
             System.out.println("Введите пароль");
             String password = kbd.nextLine();
-            switch(password){
+            switch (password) {
                 case "admin":
                     passwordTest = true;
                     System.out.println("Пароль: Дата рождения Верховной через запятые по магловскому календарю ");
                     break;
 
+                case "26,12,94":
+                    passwordTest = true;
+                    System.out.println("Тут вроде нужно год точнее указать");
+                    break;
+
                 case "26,12,1994":
+                    System.out.println("И кто составляет такие легкие пароли? \nКажется нашего магического администратора пора послать на курсы безопасности...");
                     passwordTest = false;
                     break;
 
                 default:
-                    System.out.println("Увы, пароль не соответствует требованиям, пытайтесь лучше ");
+                    System.out.println("Увы, пароль не соответствует требованиям, пора вспомнить все свои заметки ");
 
             }
         }
 
-        System.out.println("Добро пожаловать в систему решения проблем и принятия решений. \n");
+        System.out.println("\nВерховная Анна!\nДобро пожаловать в систему решения проблем и принятия решений. \n");
+
 
         //Выбор варианта
         boolean choiceTest = true;
-        while(choiceTest)
-        {
-            System.out.println(" Это зеркало души. Выбирайте с умом. \n 1 - Использовать древнюю магию против магов отступников и помочь маглам \n 2 - Запечатать древнюю магию на 100 лет и не мешать магам рушить мир");
+        while (choiceTest) {
+            System.out.println("Как только вы улетели в длительный отпуск, случилось то,чего мы опасались!");
+            System.out.println("В город Рукси ворвались бунтари маги, которые считают, что именно они должны править миром.\nОни уже захватили большую часть населения и отвели всех в ратушу.");
+            System.out.println("Вы же знаете, мы существуем, чтобы сохранять мир и спокойствие");
+            System.out.println(" \nЭто зеркало души. Выбирайте с умом. Если решите слукавить, то зеркало об этом узнает! \n  1 - Использовать древнюю магию против магов отступников и помочь маглам \n  2 - Запечатать древнюю магию на 100 лет и не мешать магам рушить мир");
             String choice = kbd.nextLine();
+            intChoice = Integer.parseInt(choice);
 
-            System.out.println("Вы уверены, что хотите выбрать " + choice + " ? " );
-
+            System.out.println("\nВы уверены, что хотите выбрать " + choice + " ? ");
             System.out.println(" да или нет ");
             decision = kbd.nextLine();
 
-
-            switch(decision)
-            {
+            switch (decision) {
                 case "нет":
                     choiceTest = true;
                     System.out.println("Таааакс, посмотрим что тут у нас \n");
@@ -55,44 +64,58 @@ public class oprosadapter {
 
                 case "да":
                     choiceTest = false;
-                    System.out.println("Вы Верховная, Вам лучше знать");
+                    System.out.println("\nВыбор сделан, обратного пути нет!\n");
                     break;
 
                 default:
-                    System.out.println("Не смогло понять Ваш выбор ");
+                    System.out.println("\nЯ не смогло понять Ваш выбор ");
+
                     boolean repeat = true;
 
-                    while (repeat)
-                    {
-                        System.out.println("Вы уверены, что хотите выбрать " + choice + " ? " );
+                    while (repeat) {
+                        System.out.println("\nВы уверены, что хотите выбрать " + choice + " ? ");
 
                         System.out.println(" да или нет ");
-                        decision = kbd.nextLine();
+                        decisiono = kbd.nextLine();
 
-                        switch (decision)
-                        {
+                        switch (decisiono) {
                             case "нет":
-                                choiceTest = true;
-                                repeat = false;
+                                choiceTest = false;
+                                repeat = true;
                                 break;
 
                             case "да":
-                                choiceTest = repeat = false;
-                                System.out.println("Вы Верховная, Вам лучше знать");
+                                choiceTest =  false;
+                                repeat = true;
+                                System.out.println("\nВыбор сделан, обратного пути нет!");
                                 break;
                             default:
-                                System.out.println("Не смогло понять Ваш выбор ");
+                                System.out.println("\nНе смогло понять Ваш выбор ");
                                 repeat = true;
+                                break;
                         }
                     }
                     break;
             }
-if (choice == "1"){
-    System.out.println(firstChoice);
-}
-else {
-    System.out.println(secondChoice);
-}
+            
         }
+        String firstChoice = "\nОтлично, хороший выбор! \nБлагодаря вашему амулету мы получили доступ в темницу к артефактам.\nВаш посыльный(бабочка с палочкой)- весьма забавный малый, если его расколдовать.\nНо не время веселиться!";
+        String firstChoicePartTwo = "Стражи быстро отловили всех.\nМаглам опять стерта память.\nВсе здания восстановлены.\nА 'Манок' теперь освещает все, как маяк во мгле";
+        String secondChoice = "\nСильный выбор достойного человека!\nХоть нам и не по душе стоять в стороне, но Вы правы, пусть с ними разбираются маглы...";
+        String secondChoicePartTwo = "Во всех новостях теперь трубят о магии,заговорах и управлением из тени!\nЧто ж, пора выйти в свет, может хоть так сможем найти больше хороших магов.\nА то последнее время наши ряды существенно поредели...";
+        if (intChoice == 1) {
+            System.out.println("\nВам письмо от Кодницы:\n");
+            System.out.println(firstChoice);
+            System.out.println(firstChoicePartTwo);
+        } else {
+            System.out.println("Зеркало души информирует вас, что был замечен выбор, который противоречит вашим желаниям!");
+            System.out.println("\nВам письмо от Кодницы:");
+            System.out.println(secondChoice);
+            System.out.println(secondChoicePartTwo);
+        }
+        System.out.println("Осталось последнее приключение на этот час.*ралявантес кертас jpg* \nТеперь на вашем устройстве откроется последняя карта сокровищ. \nСправитесь?)");
+        ImagePlus imp = IJ.openImage("C:\\Users\\yri95\\Desktop\\GURU\\FeAny\\src\\main\\resources\\foto.jpg");
+        imp.show();
     }
 }
+
