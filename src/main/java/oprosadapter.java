@@ -38,9 +38,7 @@ public class oprosadapter {
 
             }
         }
-
         System.out.println("\nВерховная Анна!\nДобро пожаловать в систему решения проблем и принятия решений. \n");
-
 
         //Выбор варианта
         boolean choiceTest = true;
@@ -85,7 +83,7 @@ public class oprosadapter {
                                 break;
 
                             case "да":
-                                choiceTest =  false;
+                                choiceTest = false;
                                 repeat = true;
                                 System.out.println("\nВыбор сделан, обратного пути нет!");
                                 break;
@@ -97,7 +95,6 @@ public class oprosadapter {
                     }
                     break;
             }
-            
         }
         String firstChoice = "\nОтлично, хороший выбор! \nБлагодаря вашему амулету мы получили доступ в темницу к артефактам.\nВаш посыльный(бабочка с палочкой)- весьма забавный малый, если его расколдовать.\nНо не время веселиться!";
         String firstChoicePartTwo = "Стражи быстро отловили всех.\nМаглам опять стерта память.\nВсе здания восстановлены.\nА 'Манок' теперь освещает все, как маяк во мгле";
